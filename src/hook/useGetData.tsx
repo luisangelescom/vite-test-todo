@@ -1,16 +1,8 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { singletonHook } from 'react-singleton-hook';
 
-import type { Todo } from '../types/todo';
+import type { ReturnProp, Todo } from '../types/todo';
 import { getLocalStorage, setDataTodo, sort, todoFake } from '../utils/local-storage';
-
-interface ReturnProp {
-  count: Todo[];
-  setCount: Dispatch<SetStateAction<Todo[]>>;
-  onChance: (id: number) => void;
-  onDelete: (id: number) => void;
-  reboot: () => void;
-}
 
 const useGetData = (): ReturnProp => {
   const [count, setCount] = useState<Todo[]>(todoFake);

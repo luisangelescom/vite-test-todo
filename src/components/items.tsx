@@ -1,12 +1,14 @@
+import useGetData from '../hook/useGetData';
+
 interface Prop {
   id: number;
   name: string;
   checked: boolean;
-  onChance: (id: number) => void;
-  onDelete: (id: number) => void;
 }
 
-function Item({ checked, name, id, onChance, onDelete }: Prop) {
+function Item({ checked, name, id }: Prop) {
+  const { onChance, onDelete } = useGetData();
+
   return (
     <div
       className='w-full border-2 border-black/20 rounded-md flex gap-2 px-4 py-2 group relative'
